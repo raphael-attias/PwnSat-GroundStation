@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title data-i18n="title_groundstation">PwnSat Ground Station</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.css">
+<link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="dot"></span>
+      <h1>PWN<span>SAT</span> // <span data-i18n="header_groundstation">GROUND STATION</span></h1>
+    </div>
+    <div class="header-right">
+      <a href="flatsat-console.html" class="nav-link" data-i18n="nav_to_console">Console FlatSat (USB direct) &rarr;</a>
+      <span id="clock"></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel" id="panel-map">
+      <h2 data-i18n="panel_map">Position (projection Equal Earth)</h2>
+      <svg id="map"></svg>
+      <p class="hint" id="map-hint" data-i18n="map_hint_no_fix">Pas de fix GPS pour l'instant.</p>
+    </section>
+
+    <section class="panel" id="panel-sat">
+      <h2 data-i18n="panel_sat">Satellite</h2>
+      <div id="sat-icon-wrap">
+        <svg id="sat-icon" viewBox="0 0 100 100">
+          <g>
+            <rect x="38" y="38" width="24" height="24" rx="3"/>
+            <rect x="8" y="44" width="26" height="12" rx="2"/>
+            <rect x="66" y="44" width="26" height="12" rx="2"/>
+            <line x1="50" y1="38" x2="50" y2="22"/>
+            <circle cx="50" cy="18" r="4"/>
+          </g>
+        </svg>
+      </div>
+      <div id="sat-status" data-i18n="sat_waiting">EN ATTENTE</div>
+      <table id="sat-data">
+        <tr><td data-i18n="d_accel">Accel X/Y/Z</td><td id="d-accel">--</td></tr>
+        <tr><td data-i18n="d_accel_t">Temp. accel</td><td id="d-accel-t">--</td></tr>
+        <tr><td data-i18n="d_bme_t">Temp. BME</td><td id="d-bme-t">--</td></tr>
+        <tr><td data-i18n="d_bme_p">Pression</td><td id="d-bme-p">--</td></tr>
+        <tr><td data-i18n="d_bme_h">Humidite</td><td id="d-bme-h">--</td></tr>
+        <tr><td data-i18n="d_bme_a">Altitude</td><td id="d-bme-a">--</td></tr>
+        <tr><td data-i18n="d_thrust">Thruster T0/T1</td><td id="d-thrust">--</td></tr>
+        <tr><td data-i18n="d_gps">GPS satellites</td><td id="d-gps">--</td></tr>
+        <tr><td data-i18n="d_uptime">Uptime</td><td id="d-uptime">--</td></tr>
+        <tr><td data-i18n="d_fw">Firmware</td><td id="d-fw">--</td></tr>
+        <tr><td data-i18n="d_apid">Dernier APID</td><td id="d-apid">--</td></tr>
+        <tr><td data-i18n="d_since">Dernier contact</td><td id="d-since">--</td></tr>
+      </table>
+    </section>
+
+    <section class="panel" id="panel-shell">
+      <h2 data-i18n="panel_shell">Ground Station Shell</h2>
+      <div id="shell-terminal"></div>
+    </section>
+
+    <section class="panel" id="panel-radio">
+      <h2 data-i18n="panel_radio">Liaison radio</h2>
+      <table id="radio-config">
+        <tr><td data-i18n="r_down">Downlink</td><td id="r-down">--</td></tr>
+        <tr><td data-i18n="r_up">Uplink</td><td id="r-up">--</td></tr>
+        <tr><td data-i18n="r_mod">BW / SF / CR</td><td id="r-mod">--</td></tr>
+        <tr><td data-i18n="r_rssi">RSSI / SNR</td><td><span id="r-rssi">--</span> dBm / <span id="r-snr">--</span> dB</td></tr>
+      </table>
+      <div class="rxtx-row">
+        <div class="led" id="led-rx">RX</div>
+        <div class="led" id="led-tx">TX</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@xterm/addon-fit@0.10.0/lib/addon-fit.js"></script>
+  <script src="i18n.js?v=1"></script>
+  <script src="app.js?v=10"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+websockets>=12.0
+pyserial>=3.5
+pycryptodome>=3.20

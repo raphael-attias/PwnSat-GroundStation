@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Logs
+*.log
+
+# PlatformIO
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# Editeurs / OS
+.vscode/
+.DS_Store
+Thumbs.db
